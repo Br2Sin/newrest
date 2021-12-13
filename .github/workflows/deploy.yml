@@ -18,10 +18,11 @@ jobs:
           key: ${{secrets.SSH_KEY}} 
           username: ${{secrets.SSH_USERNAME}}
           script: |
-            cd /home
-            git clone https://github.com/VictorKudrin/newrest.git
-            cd newrest/api
+            cd /home/newrest
+            #git clone https://github.com/VictorKudrin/newrest.git
+            git pull
+            cd api
             python3 -m venv venv
             . venv/bin/activate
-            python -m pip install --requirement requirements.txt
+            #python -m pip install --requirement requirements.txt
             python3 manage.py runserver
