@@ -1,0 +1,27 @@
+name: Django
+on:
+  push:
+    branches: [ rest ]
+jobs:
+  deploy:
+    name: Deployment
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - name: setup.
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.SSH_HOST}}
+          key: ${{secrets.SSH_KEY}} 
+          username: ${{secrets.SSH_USERNAME}}
+          script: |
+            cd /home
+            git clone https://github.com/VictorKudrin/rest.git
+            cd rest/api
+            . venv/bin/activate
+	    sudo apt install python3-dev libmysqlclient-dev
+	    pip install -r requirements.txt
+            python3 manage.py runserver
