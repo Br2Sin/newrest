@@ -21,8 +21,8 @@ jobs:
             cd /home/newrest
             #git clone https://github.com/VictorKudrin/newrest.git
             git pull
-            cd api
-            python3 -m venv venv
-            . venv/bin/activate
+            #cd api
+            #python3 -m venv venv
+            #. venv/bin/activate
             #python -m pip install --requirement requirements.txt
-            python3 manage.py runserver 127.0.0.1:8001
+            #python3 manage.py runserver 127.0.0.1:8001
