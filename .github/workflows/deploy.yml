@@ -25,4 +25,4 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             #python -m pip install --requirement requirements.txt
-            python3 manage.py runserver 198.211.117.127:8001
+            python3 manage.py runserver 127.0.0.1:8001
