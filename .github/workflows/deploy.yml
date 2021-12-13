@@ -1,14 +1,14 @@
 name: Django
 on:
   push:
-    branches: [ rest ]
+    branches: [ newrest ]
 jobs:
   deploy:
     name: Deployment
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
-      - name: setup.
+      - name: setup python
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
@@ -22,6 +22,4 @@ jobs:
             git clone https://github.com/VictorKudrin/rest.git
             cd rest/api
             . venv/bin/activate
-	    sudo apt install python3-dev libmysqlclient-dev
-	    pip install -r requirements.txt
             python3 manage.py runserver
